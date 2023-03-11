@@ -8,8 +8,8 @@ from google.cloud.bigquery import SchemaField
 
 # Flights Lab API
 API_KEY = os.environ.get("FLIGHTS_API_KEY")
-URL = f"https://app.goflightlabs.com/historical/2023-02-15?access\
-    _key={API_KEY}&code=LHW&type=arrival&date_to=2023-02-16&codeshared=null"
+URL = f"https://app.goflightlabs.com/historical/2023-03-07?access\
+    _key={API_KEY}&code=LHW&type=arrival&date_to=2023-03-08"
 
 
 # BigQuery
@@ -19,7 +19,7 @@ BQ_CLIENT = bigquery.Client()
 TABLE_ID = "flights-project-379412.heathrow.heathrow-flights"
 
 
-# Data caching
+# Data fetching and caching
 def data_cacher(use_cache: bool, json_cache: str, URL: str) -> bool:
     if use_cache:
         # Check if cached data exists
